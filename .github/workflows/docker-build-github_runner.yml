@@ -1,4 +1,4 @@
-name: LATEST
+name: ONGITHUB
 
 on:
   push:

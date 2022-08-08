@@ -1,4 +1,4 @@
-name: HOSTED
+name: ONHOSTED
 
 on:
   push:
