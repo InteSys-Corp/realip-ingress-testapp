@@ -1,0 +1,29 @@
+name: HOSTED
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Docker Login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+    - name: Build the Docker image
+      #run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/eproc_autenticacao:latest
+      run: docker build -t joaoreis/realip-ingress-testapp ./code
+
+    - name: Docker Push
+      #run: docker push ${{secrets.DOCKER_USER}}/eproc_autenticacao:latest
+      run: docker push joaoreis/realip-ingress-testapp
+
+
