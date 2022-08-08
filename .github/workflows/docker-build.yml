@@ -2,7 +2,7 @@ name: LATEST
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
 
