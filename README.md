@@ -17,4 +17,3 @@ kubectl --kubeconfig ~/.kube/config_intesys_dev_sandbox1 -n development apply -f
 ```
 kubectl -n development apply -f ./kube-deploy-talos-sandbox.yml
 kubectl -n development delete -f ./kube-deploy-talos-sandbox.yml
-
