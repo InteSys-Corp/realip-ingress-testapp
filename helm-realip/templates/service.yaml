@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: {{ template "helm-realip.fullname" . }}
   labels:
+    service: {{ template "helm-realip.name" . }}
     app: {{ template "helm-realip.name" . }}
     chart: {{ template "helm-realip.chart" . }}
     release: {{ .Release.Name }}
@@ -11,7 +12,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 8000
+      targetPort: {{ .Values.service.port }}
       protocol: TCP
       name: http
   selector:
