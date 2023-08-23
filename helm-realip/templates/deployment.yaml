@@ -31,11 +31,11 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /realip-ingress-testapp
               port: 8000
           readinessProbe:
             httpGet:
-              path: /
+              path: /realip-ingress-testapp
               port: 8000
           resources:
 {{ toYaml .Values.resources | indent 12 }}
