@@ -14,6 +14,4 @@ docker push joaoreis/realip-ingress-testapp
 kubectl --kubeconfig ~/.kube/config_intesys_dev_sandbox1 create namespace development --dry-run=client -o yaml | kubectl apply -f -
 kubectl --kubeconfig ~/.kube/config_intesys_dev_sandbox1 -n development delete -f ./kube-deploy.yml
 kubectl --kubeconfig ~/.kube/config_intesys_dev_sandbox1 -n development apply -f ./kube-deploy.yml 
-```
-kubectl -n development apply -f ./kube-deploy-talos-sandbox.yml
-kubectl -n development delete -f ./kube-deploy-talos-sandbox.yml 
+``` 

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "helm-realip.fullname" . }}
+  labels:
+    app: {{ template "helm-realip.name" . }}
+    chart: {{ template "helm-realip.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8000
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "helm-realip.name" . }}
+    release: {{ .Release.Name }}
